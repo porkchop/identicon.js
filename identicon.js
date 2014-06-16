@@ -32,23 +32,26 @@
             // invisible white background
             var bg      = image.color(255, 255, 255, 1);
 
-            // foreground is last 7 chars as hue at 50% saturation, 70% brightness
-            var rgb     = this.hsl2rgb(parseInt(hash.substr(-7), 16) / 0xfffffff, .5, .7),
+            // foreground is last 7 chars as hue at 80% saturation, 40% brightness
+            var rgb     = this.hsl2rgb(parseInt(hash.substr(-7), 16) / 0xfffffff, .8, .4),
                 fg      = image.color(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);
 
-            // the first 15 characters of the hash control the pixels (even/odd)
+            // the first 28 characters of the hash control the pixels (even/odd)
             // they are drawn down the middle first, then mirrored outwards
             var i, color;
-            for (i = 0; i < 15; i++) {
+            for (i = 0; i < 28; i++) {
                 color = parseInt(hash.charAt(i), 16) % 2 ? bg : fg;
-                if (i < 5) {
-                    this.rectangle(2 * cell + margin, i * cell + margin, cell, cell, color, image);
-                } else if (i < 10) {
-                    this.rectangle(1 * cell + margin, (i - 5) * cell + margin, cell, cell, color, image);
-                    this.rectangle(3 * cell + margin, (i - 5) * cell + margin, cell, cell, color, image);
-                } else if (i < 15) {
-                    this.rectangle(0 * cell + margin, (i - 10) * cell + margin, cell, cell, color, image);
-                    this.rectangle(4 * cell + margin, (i - 10) * cell + margin, cell, cell, color, image);
+                if (i < 7) {
+                    this.rectangle(3 * cell + margin, i * cell + margin, cell, cell, color, image);
+                } else if (i < 14) {
+                    this.rectangle(2 * cell + margin, (i - 7) * cell + margin, cell, cell, color, image);
+                    this.rectangle(4 * cell + margin, (i - 7) * cell + margin, cell, cell, color, image);
+                } else if (i < 21) {
+                    this.rectangle(1 * cell + margin, (i - 14) * cell + margin, cell, cell, color, image);
+                    this.rectangle(5 * cell + margin, (i - 14) * cell + margin, cell, cell, color, image);
+                } else if (i < 28) {
+                    this.rectangle(0 * cell + margin, (i - 21) * cell + margin, cell, cell, color, image);
+                    this.rectangle(6 * cell + margin, (i - 21) * cell + margin, cell, cell, color, image);
                 }
             }
 
