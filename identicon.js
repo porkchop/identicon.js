@@ -26,7 +26,7 @@
             var hash    = this.hash,
                 size    = this.size,
                 margin  = Math.floor(size * this.margin),
-                cell    = Math.floor((size - (margin * 2)) / 5),
+                cell    = Math.floor((size - (margin * 2)) / 7),
                 image   = new PNGlib(size, size, 256);
 
             // invisible white background
