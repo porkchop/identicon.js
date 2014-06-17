@@ -7,7 +7,7 @@ This little library will produce the same shape and (roughly) the same color as 
 
 Demo
 ----
-[View Demo](https://rawgithub.com/stewartlord/identicon.js/master/demo.html)
+[View Demo](https://rawgithub.com/porkchop/identicon.js/master/demo.html)
 
 Usage
 -----
